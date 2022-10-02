@@ -1,0 +1,143 @@
+.form-container {
+    max-width: 500px;
+    margin: 30px auto 0 auto;
+    padding: 20px 0;
+    box-shadow: 0 2px 6px #555;
+    border-radius: 25px;
+
+    @include mobile-550 {
+        max-width: 380px;
+    }
+
+    @include mobile-400 {
+        max-width: 280px;
+    }
+
+    @include mobile-300 {
+        max-width: 240px;
+    }
+
+    h2 {
+        text-align: center;
+        color: $primary-color;
+    }
+
+    form {
+        @include flexCenter(column, center);
+        color: $primary-color;
+
+        a {
+            color: $primary-color;
+        }
+    }
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+    margin: 16px 0;
+    padding: 0 20px;
+    width: 95%;
+
+    @include mobile-550 {
+        padding: 0;
+    }
+
+    label {
+        align-self: flex-start;
+        margin: 0 10px;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    input {
+        width: 95%;
+        padding: 8px;
+        @include bordered(2px, #e67e22);
+        margin: 5px 10px;
+        font-size: 18px;
+        background-color: #eaeaea;
+        outline: none;
+
+        @include mobile-400 {
+            width: 92%;
+        }
+    }
+}
+
+.form-btn {
+    @include colour($primary-color, $secondary-color);
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 25px;
+    width: 120px;
+    outline: none;
+    margin: 10px 0;
+
+    @include mobile-400 {
+        font-size: 16px;
+        width: 100px;
+    }
+}
+
+.form-error {
+    color: #C20D0D;
+    margin-bottom: -20px;
+    margin-left: 12px;
+    font-weight: bold;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+
+    #{&}-text {
+        @include colour(#c8d8e4, $primary-color);
+        @include bordered(1px, $primary-color);
+        width: 300px;
+        font-size: 13px;
+        position: absolute;
+        top: 150%;
+        left: 50%;
+        border-radius: 10px;
+        padding: 10px;
+        margin-left: -110px;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.7s;
+
+        @include mobile-400 {
+            font-size: 11px;
+            width: 260px;
+        }
+
+        @include mobile-300 {
+            margin-left: -120px;
+        }
+    }
+
+    #{&}-text::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -50px;
+        border: 10px solid;
+        border-color: transparent transparent $primary-color transparent;
+
+        @include mobile-400 {
+            margin-left: -30px;
+        }
+
+        @include mobile-300 {
+            margin-left: -20px;
+        }
+    }
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}

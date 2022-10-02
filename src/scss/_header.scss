@@ -1,0 +1,119 @@
+header {
+    @include flexCenter(row, space-around);
+    flex-wrap: wrap;
+    height: 80px;
+    background-color: $primary-color;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+
+    @include mobile-500 {
+        height: 110px;
+    }
+
+    .logo {
+        margin-right: 15px;
+
+        @include mobile-500 {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+    }
+
+    #input-search {
+        width: 250px;
+        padding: 5px 8px 5px 8px;
+        font-size: 18px;
+        outline: none;
+
+        @include mobile-500 {
+            position: absolute;
+            bottom: 15px;
+            left: 20px;
+        }
+
+        @include mobile-300 {
+            width: 220px;
+        }
+    }
+
+    ul {
+        @include mobile-878 {
+            position: fixed;
+            @include spread(100%, 50vh);
+            padding-top: 20px;
+            @include flexCenter(column, space-around);
+            z-index: 99;
+            transition: 0.7s ease-in-out;
+        }
+
+        li {
+            list-style: none;
+            display: inline-block;
+            padding: 0 10px;
+            font-size: 18px;
+
+            .menu {
+                @include mobile-878 {
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                }
+            }
+
+            a {
+                padding: 10px 20px 10px 20px;
+                border-radius: 20px;
+                transition: 0.7s;
+
+                &:hover {
+                    @include colour($secondary-color, $primary-color);
+                }
+            }
+        }
+    }
+
+    .cart-icon {
+        position: relative;
+
+        @include mobile-500 {
+            top: -55px;
+            right: -30px;
+        }
+
+        span {
+            @include colour(#C20D0D, $secondary-color);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 25px;
+            right: 6px;
+            font-weight: bold;
+            padding: 4px;
+            font-size: 12px;
+
+            @include mobile-500 {
+                bottom: -27px;
+                right: 27px;
+                padding: 3px;
+                z-index: 1;
+            }
+        }
+    }
+}
+
+.menu {
+    display: none;
+
+    @include mobile-878 {
+        display: block;
+        cursor: pointer;
+    }
+
+    @include mobile-500 {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+}

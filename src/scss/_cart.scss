@@ -1,0 +1,196 @@
+/* ****** Cart ********************** */
+%btn {
+    @include colour($primary-color, $secondary-color);
+    padding: 10px 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.delete {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    margin: 10px;
+    font-size: 15px;
+    @extend %btn;
+
+    @include mobile-550 {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+
+    @include mobile-450 {
+        font-size: 10px;
+        padding: 6px 12px;
+    }
+}
+
+.checkout-btn {
+    margin: 20px auto;
+    width: 100%;
+    display: inline-block;
+    @extend %btn;
+}
+
+#cart-section {
+    @include flexCenter(row, center);
+    font-size: 3rem;
+    text-align: center
+}
+
+.cart {
+    @include flexCenter(row, space-evenly);
+    margin: 0 auto 0 auto;
+    flex-wrap: wrap;
+    max-width: 1200px;
+
+    #{&}-box {
+        @include flexCenter(column, space-evenly);
+        flex-wrap: wrap;
+    }
+}
+
+.card {
+    display: flex;
+    margin: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px #555;
+    padding: 15px;
+    position: relative;
+    width: 500px;
+
+    @include mobile-550 {
+        width: 400px;
+    }
+
+    @include mobile-450 {
+        width: 330px;
+    }
+
+    @include mobile-350 {
+        width: 250px;
+    }
+
+    #{&}-img {
+        @include spread(150px, 150px);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        @include bordered(2px, $primary-color);
+
+        @include mobile-550 {
+            @include spread(100px, 120px);
+        }
+
+    }
+
+    #{&}-content {
+        padding: 0 10px 0 15px;
+
+        p {
+            font-size: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            word-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: bold;
+
+            @include mobile-550 {
+                font-size: 18px;
+            }
+
+            @include mobile-450 {
+                font-size: 16px;
+            }
+
+            @include mobile-350 {
+                font-size: 14px;
+            }
+        }
+
+        h3 {
+            color: #C20D0D;
+            margin-bottom: 15px;
+            font-size: 20px;
+
+            @include mobile-550 {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+
+            @include mobile-450 {
+                font-size: 14px;
+            }
+        }
+
+        .amount {
+
+            @include mobile-350 {
+                margin-bottom: 35px;
+            }
+
+            .count {
+                @include spread(30px, 30px);
+                @include bordered(1px, #555);
+                @include colour($primary-color, $secondary-color);
+                outline: none;
+                font-size: 20px;
+                cursor: pointer;
+
+                @include mobile-550 {
+                    @include spread(25px, 25px);
+                }
+
+                @include mobile-450 {
+                    @include spread(20px, 20px);
+                    font-size: 15px;
+                }
+            }
+
+            span {
+                color: #C20D0D;
+                padding: 0 20px;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.checkout {
+    align-self: flex-start;
+    margin: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px #555;
+    padding: 15px;
+    width: 400px;
+
+    @include mobile-450 {
+        width: 330px;
+        font-size: 14px;
+    }
+
+    @include mobile-350 {
+        width: 250px;
+    }
+
+    .heading {
+        border-bottom: 2px solid $primary-color;
+        padding: 10px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .price,
+    .delivery,
+    .total {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 10px 5px 10px;
+    }
+}
